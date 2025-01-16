@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "fizzle"
+name = "resolute"
 version = "0.0.1"
 authors = [
     { name="Evan Su" },
@@ -20,5 +20,5 @@ classifiers = [
 dependencies = []
 
 [project.urls]
-Homepage = "https://github.com/HACKERALERT/Fizzle"
-Issues = "https://github.com/HACKERALERT/Fizzle/issues"
+Homepage = "https://github.com/HACKERALERT/Resolute"
+Issues = "https://github.com/HACKERALERT/Resolute/issues"

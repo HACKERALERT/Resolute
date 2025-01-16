@@ -1,7 +1,7 @@
 from multiprocessing import Queue, Process
 from threading import Thread
 from socket import socket, AF_INET, SOCK_STREAM
-from fizzle.handler import _handle
+from resolute.handler import _handle
 
 def accept(host: str, port: int, queue: Queue):
 	with socket(family=AF_INET, type=SOCK_STREAM) as sock:
