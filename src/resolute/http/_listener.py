@@ -10,7 +10,7 @@ def accept(host: str, port: int, queue: Queue):
 			queue.put(sock.accept()[0], block=True, timeout=None)
 
 def listen(host: str = "127.0.0.1", port: int = 8000):
-	connQueue = Queue()
+	connQueue: Queue[socket] = Queue()
 	Process(target=accept, args=(host, port, connQueue), daemon=True).start()
 	while True:
 		conn = connQueue.get(block=True, timeout=None)
