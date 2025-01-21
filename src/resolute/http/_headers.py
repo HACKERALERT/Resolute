@@ -1,4 +1,8 @@
 class Headers:
+	"""
+	A case-insensitive headers wrapper that functions like a typical dictionary.
+	Keys will automatically be converted to lowercase, so you may use any casing for them.
+	"""
 	_dict: dict[str, str]
 
 	def __init__(self) -> None:
