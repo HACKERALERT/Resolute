@@ -1,6 +1,10 @@
+from concurrent.futures import ThreadPoolExecutor
+from multiprocessing import cpu_count
 from socket import socket
 
-def _handle(sock: socket) -> None:
+pool = ThreadPoolExecutor(max_workers=(cpu_count() or 1) * 32)
+
+def handle(sock: socket) -> None:
     try:
         sock.settimeout(1)
 

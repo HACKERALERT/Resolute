@@ -1,7 +1,6 @@
 from multiprocessing import Queue, Process
-from threading import Thread
 from socket import socket, AF_INET, SOCK_STREAM
-from resolute.handler import _handle
+from resolute.http._handler import pool, handle
 
 def accept(host: str, port: int, queue: Queue):
 	with socket(family=AF_INET, type=SOCK_STREAM) as sock:
@@ -15,4 +14,4 @@ def listen(host: str = "127.0.0.1", port: int = 8000):
 	Process(target=accept, args=(host, port, connQueue), daemon=True).start()
 	while True:
 		conn = connQueue.get(block=True, timeout=None)
-		Thread(target=_handle, args=(conn,), daemon=True).start()
+		pool.submit(handle, conn)
